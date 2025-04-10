@@ -23,31 +23,12 @@ function App() {
       .then((res) => setProdutos(res))
   }, [])
 
-  const [favoritos, setFavoritos] = useState<Produto[]>([])
-
-  const favoritar = (produto: Produto) => {
-    if (favoritos.find((fav) => fav.id === produto.id)) {
-      setFavoritos(favoritos.filter((fav) => fav.id !== produto.id))
-    } else {
-      setFavoritos([...favoritos, produto])
-    }
-  }
-
-  const adicionarAoCarrinho = (produto: Produto) => {
-    console.log('Adicionar ao carrinho:', produto)
-  }
-
   return (
     <Provider store={store}>
       <GlobalStyle />
       <div className="container">
         <Header />
-        <Produtos
-          produtos={produtos}
-          favoritos={favoritos}
-          adicionarAoCarrinho={adicionarAoCarrinho}
-          favoritar={favoritar}
-        />
+        <Produtos produtos={produtos} />
       </div>
     </Provider>
   )
