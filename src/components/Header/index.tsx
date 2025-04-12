@@ -9,6 +9,7 @@ import { RootState } from '../../store'
 
 const Header = () => {
   const itens = useSelector((state: RootState) => state.carrinho.itens)
+  const favoritos = useSelector((state: RootState) => state.favoritar.itens)
 
   const valorTotal = itens.reduce((acc: number, item) => {
     return acc + item.preco
@@ -18,7 +19,7 @@ const Header = () => {
     <S.Header>
       <h1>EBAC Sports</h1>
       <div>
-        <span>{itens.length} favoritos</span>
+        <span>{favoritos.length} favoritos</span>
         <img src={cesta} />
         <span>
           {itens.length} itens, valor total: {paraReal(valorTotal)}

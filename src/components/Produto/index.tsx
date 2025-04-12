@@ -34,6 +34,7 @@ const ProdutoComponent = ({ produto, estaNosFavoritos }: Props) => {
           ? '- Remover dos favoritos'
           : '+ Adicionar aos favoritos'}
       </S.BtnComprar>
+
       <S.BtnComprar onClick={() => dispatch(adicionar(produto))} type="button">
         Adicionar ao carrinho
       </S.BtnComprar>
